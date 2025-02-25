@@ -7,6 +7,12 @@ const numberSubmit=(e)=>{
     const form = e.target;
     const inputField = form.guessField.value;
     const text = document.getElementById('message');
+    const resultValue = document.getElementById('result');
+    const result = parseInt(resultValue.innerText)
+    console.log(typeof(result))
+    
+
+
     console.log(inputField)
     if(isNaN(inputField) || inputField==''){
         alert('Invalid Input Number!!');
@@ -14,15 +20,28 @@ const numberSubmit=(e)=>{
         return 0;
     }
     else if(inputField < guessNum){
-        text.innerText=`Your Number is Lower Than Guess Number ${inputField}`
-
+        if(result>0){
+            resultValue.innerText=  result-1
+        }
+        else {
+            form.guessField.disabled = true; 
+       return alert('Maximum Attempts Found!!')
+        }
+        text.innerText=`Your Number ${inputField} is Lower Than Guess Number!!`
         return 0;
     }
     else if(inputField>guessNum){
-        text.innerText=`Your Number is Higher Than Guess Number ${inputField}`
+       
+        if(result>0){
+            resultValue.innerText=  result-1
+        }
+        else {
+            form.guessField.disabled = true; 
+        return alert('Maximum Attempts Found!!')
+        }
+         text.innerText=`Your Number ${inputField} is Higher Than Guess Number!!`;
         return 0;
     }
-
         prevNum.push(inputField)
         const prevMessage= document.getElementById('guesses');
 
