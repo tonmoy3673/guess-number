@@ -51,7 +51,10 @@ const numberSubmit=(e)=>{
         return 0;
     }
         if (inputField==guessNum) {
-            finalResult.innerText=``
+            resultContainer.style.display='none'
+            submitButton.style.display='none';
+            finalResult.style.cssText='font-size:25px; color:green;font-weight:600;'
+            finalResult.innerText=`Matched!! You Win The Game!!`
         }
     
         prevNum.push(inputField)
