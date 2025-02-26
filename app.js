@@ -8,7 +8,11 @@ const numberSubmit=(e)=>{
     const inputField = form.guessField.value;
     const text = document.getElementById('message');
     const resultValue = document.getElementById('result');
-    const result = parseInt(resultValue.innerText)
+    const result = parseInt(resultValue.innerText);
+    const finalResult= document.getElementById('final-result')
+    const resultContainer = document.getElementById('result-container');
+    const submitButton= document.getElementById('subt');
+
     console.log(typeof(result))
     
 
@@ -36,12 +40,16 @@ const numberSubmit=(e)=>{
             resultValue.innerText=  result-1
         }
         else {
-            form.guessField.disabled = true; 
-        return alert('Maximum Attempts Found!!')
+            form.guessField.disabled = true;
+            finalResult.innerText='You Lost The Game!!';
+            resultContainer.style.display='none'
+            submitButton.style.display='none';
+        return alert('Maximum Attempts Found!!');
         }
          text.innerText=`Your Number ${inputField} is Higher Than Guess Number!!`;
         return 0;
     }
+    
         prevNum.push(inputField)
         const prevMessage= document.getElementById('guesses');
 
