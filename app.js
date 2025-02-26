@@ -41,7 +41,8 @@ const numberSubmit=(e)=>{
         }
         else {
             form.guessField.disabled = true;
-            finalResult.innerText='You Lost The Game!!';
+            finalResult.style.cssText='font-size:24px; color:red'
+            finalResult.innerText='You Lost The Game!Never Give UP!!';
             resultContainer.style.display='none'
             submitButton.style.display='none';
         return alert('Maximum Attempts Found!!');
@@ -49,6 +50,9 @@ const numberSubmit=(e)=>{
          text.innerText=`Your Number ${inputField} is Higher Than Guess Number!!`;
         return 0;
     }
+        if (inputField==guessNum) {
+            finalResult.innerText=``
+        }
     
         prevNum.push(inputField)
         const prevMessage= document.getElementById('guesses');
